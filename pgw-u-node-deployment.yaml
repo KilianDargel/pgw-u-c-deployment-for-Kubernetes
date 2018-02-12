@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+    labels:
+    run: pgw-u-node
+  name: pgw-u-node
+  namespace: kda
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: pgw-u-node
+  template:
+    metadata:
+        labels:
+        run: pgw-u-node
+    spec:
+      containers:
+      - image: ergw/ergw-pgw-u-node
+        name: pgw-u-node
+        volumeMounts:
+      - name: init-volume
+        mountPath: /data/init-volume
+      initContainers:
+      - name: init-pgw-u
+        image: busybox
+        volumeMounts:
+      - name: init-volume
+        mountPath: /data/init-volume
+  volumes:
+  - name: init-volume
+    emptyDir: {}

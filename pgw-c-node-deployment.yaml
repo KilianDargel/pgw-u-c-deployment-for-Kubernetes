@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+  labels:
+    run: pgw-c-node
+  name: pgw-c-node
+  namespace: kda
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: pgw-c-node
+  template:
+      labels:
+        run: pgw-c-node
+    spec:
+      containers:
+      - image: ergw/ergw-pgw-c-node
+        imagePullPolicy: Always
+        name: pgw-u-node
