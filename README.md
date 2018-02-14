@@ -1,4 +1,4 @@
-# ergw docker-files for kubernetes
+# ergw docker-files and kubernetes deployment
 
 Container orchestration:
 ![Docker containers](https://raw.githubusercontent.com/KilianDargel/pgw-u-docker/master/PGW-container.jpeg)
